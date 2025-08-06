@@ -5,7 +5,7 @@ services:
     image: php:7.4-apache
     container_name: inventoryweb_app
     ports:
-      - "9096:80"
+      - "9098:80"
     volumes:
       - .:/var/www/html
       - ./apache-config.conf:/etc/apache2/sites-available/000-default.conf
