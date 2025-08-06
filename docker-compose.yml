@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  web:
+    image: php:7.4-apache
+    container_name: inventoryweb_app
+    ports:
+      - "9096:80"
+    volumes:
+      - .:/var/www/html
+      - ./apache-config.conf:/etc/apache2/sites-available/000-default.conf
+    depends_on:
+      - mysql
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    command: >
+      bash -c "
+      a2enmod rewrite &&
+      docker-php-ext-install mysqli pdo pdo_mysql &&
+      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer &&
+      apache2-foreground
+      "
+
+  mysql:
+    image: mysql:5.7
+    container_name: inventoryweb_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: inventory_db
+      MYSQL_USER: inventory_user
+      MYSQL_PASSWORD: inventory_pass
+    ports:
+      - "3310:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: inventoryweb_pma
+    restart: always
+    ports:
+      - "9097:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
