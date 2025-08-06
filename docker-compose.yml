@@ -5,7 +5,7 @@ services:
     image: php:7.4-apache
     container_name: inventoryweb_app
     ports:
-      - "9098:80"
+      - "9096:80"
     volumes:
       - .:/var/www/html
       - ./apache-config.conf:/etc/apache2/sites-available/000-default.conf
@@ -16,11 +16,8 @@ services:
     command: >
       bash -c "
       a2enmod rewrite &&
-      docker-php-ext-install mysqli pdo pdo_mysql gd &&
+      docker-php-ext-install mysqli pdo pdo_mysql &&
       curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer &&
-      if [ ! -f /var/www/html/vendor/autoload.php ]; then
-        cd /var/www/html && composer require mpdf/mpdf --ignore-platform-req=ext-gd;
-      fi &&
       apache2-foreground
       "
 
