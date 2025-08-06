@@ -16,8 +16,11 @@ services:
     command: >
       bash -c "
       a2enmod rewrite &&
-      docker-php-ext-install mysqli pdo pdo_mysql &&
+      docker-php-ext-install mysqli pdo pdo_mysql gd &&
       curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer &&
+      if [ ! -f /var/www/html/vendor/autoload.php ]; then
+        cd /var/www/html && composer require mpdf/mpdf --ignore-platform-req=ext-gd;
+      fi &&
       apache2-foreground
       "
 
