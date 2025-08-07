@@ -10,7 +10,7 @@ $route['profile'] = 'Profile/index';
 $route['user'] = 'User/index';
 $route['login'] = 'Login/index';
 
-//master
+//masterg
 $route['supplier'] = 'Supplier/index';
 $route['jenis'] = 'Jenis/index';
 $route['satuan'] = 'Satuan/index';

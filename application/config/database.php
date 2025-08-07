@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'mysql',
+	'hostname' => 'inventoryweb_db',
 	'username' => 'inventory_user',
 	'password' => 'inventory_pass',
 	'database' => 'inventory_db',
