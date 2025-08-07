@@ -24,6 +24,4 @@ COPY . /var/www/html/
 # Copy apache config
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# Set permissions for cache and logs
-RUN chown -R www-data:www-data /var/www/html/application/cache
-RUN chown -R www-data:www-data /var/www/html/application/logs
+RUN chown -R www-data:www-data /var/www/html/
