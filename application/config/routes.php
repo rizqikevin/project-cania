@@ -1,10 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// $route['default_controller'] = 'home/index';
-$route['default_controller'] = 'welcome';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['default_controller'] = 'home/index';
 
 $route['home'] = 'Home/index';
 $route['profile'] = 'Profile/index';
@@ -24,9 +21,3 @@ $route['barang_keluar'] = 'barangKeluar/index';
 //laporan
 $route['lap_barang_masuk'] = 'barangMasuk/laporan';
 $route['lap_barang_keluar'] = 'barangKeluar/laporan';
-
-
-
-$route['(:any)'] = 'gagal/index/$1';
-// $route['404_override'] = 'Gagal/index';
-// $route['translate_uri_dashes'] = FALSE;
