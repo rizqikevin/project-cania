@@ -22,7 +22,7 @@ services:
       MYSQL_DATABASE: inventoryweb
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-      - "3310:3306"
+      - "3306:3306"
     volumes:
       - ./db/inventoryweb.sql:/docker-entrypoint-initdb.d/init.sql
       - cania_db_data:/var/lib/mysql
