@@ -10,7 +10,7 @@ $route['profile'] = 'Profile/index';
 $route['user'] = 'User/index';
 $route['login'] = 'Login/index';
 
-//masterg
+//master
 $route['supplier'] = 'Supplier/index';
 $route['jenis'] = 'Jenis/index';
 $route['satuan'] = 'Satuan/index';
@@ -21,3 +21,9 @@ $route['barang_keluar'] = 'barangKeluar/index';
 //laporan
 $route['lap_barang_masuk'] = 'barangMasuk/laporan';
 $route['lap_barang_keluar'] = 'barangKeluar/laporan';
+
+
+
+$route['(:any)'] = 'gagal/index/$1';
+$route['404_override'] = 'Gagal/index';
+$route['translate_uri_dashes'] = FALSE;
