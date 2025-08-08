@@ -54,7 +54,7 @@ if (!$this->session->has_userdata('login_session')) {
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url() ?>home">
                 <div class="sidebar-brand-icon ">
-                    <img src="<?= base_url(); ?>assets/icon/logo.png" width="80">
+                    <img src="<?= base_url(); ?>assets/Icon/logo.png" width="80">
                 </div>
                 <div class="sidebar-brand-text mx-3 ">PT. SBI</div>
                 
