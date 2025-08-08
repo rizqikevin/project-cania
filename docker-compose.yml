@@ -10,6 +10,8 @@ services:
       - "9096:80"
     volumes:
       - .:/var/www/html
+      - cania_cache:/var/www/html/application/cache
+      - cania_logs:/var/www/html/application/logs
     depends_on:
       - db
     restart: unless-stopped
@@ -22,10 +24,12 @@ services:
       MYSQL_DATABASE: inventoryweb
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-      - "3306:3306"
+      - "3310:3306"
     volumes:
       - ./db/inventoryweb.sql:/docker-entrypoint-initdb.d/init.sql
       - cania_db_data:/var/lib/mysql
 
 volumes:
   cania_db_data:
+  cania_cache:
+  cania_logs:
