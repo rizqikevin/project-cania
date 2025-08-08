@@ -24,4 +24,7 @@ COPY . /var/www/html/
 # Copy apache config
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# Create session directory and set permissions
+RUN mkdir -p /var/www/html/application/cache/sessions
+
 RUN chown -R www-data:www-data /var/www/html/
