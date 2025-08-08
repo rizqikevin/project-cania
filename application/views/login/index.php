@@ -23,15 +23,12 @@
                                     <div class="double-bounce2"></div>
                                 </div>
                                 <div class="judul">
-                                    <hr class="bg-white">
-                                    <br>
                                     <div class="text-center">
                                         <h1 class="h2 text-black font-bold mb-4"><b>APLIKASI</b></h1>
                                     </div>
                                     <div class="text-center">
                                         <h1 class="h3 text-black font-bold mb-4">INVENTORY BARANG</h1>
                                     </div>
-                                    <hr class="bg-white">
                                 </div>
 
 
